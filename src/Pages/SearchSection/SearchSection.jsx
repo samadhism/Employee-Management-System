@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from "../SearchSection/searchSection.module.css";
 
 const SearchSection = () => {
-  return (
-    <div>SearchSection</div>
-  )
+ 
+    <div className={styles["main-content"]}>SearchSection</div>
+  
 }
 
 export default SearchSection

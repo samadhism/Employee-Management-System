@@ -1,0 +1,7 @@
+.main-content {
+    height: 10vh;
+    border-radius: .5rem;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

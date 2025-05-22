@@ -7,12 +7,12 @@ import Content from '../Content'
 
 const EmployeeView = () => {
   return (
-    <div>
-        <Sidebar/>
-        <div>
-            <SearchSection/>
-            <Content/>
-        </div>
+    <div className={styles["main-view"]}>
+      <Sidebar/>
+      <div className={styles["main-content"]}>
+        <SearchSection/>
+        <Content />
+      </div>
     </div>
   )
 }

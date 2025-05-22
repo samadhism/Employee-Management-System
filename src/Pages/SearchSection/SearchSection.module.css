@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 64.5%;
+}
+
+.main-content {
+    height: 10vh;
+    background-color: #fff;
+}
