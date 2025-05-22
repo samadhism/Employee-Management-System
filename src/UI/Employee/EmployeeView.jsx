@@ -1,9 +1,12 @@
 import React from 'react'
-import styles from "../Employee/EmployeeView.module.css"
+// import styles from "../Employee/EmployeeView.module.css"
+import Sidebar from '../../Pages/Sidebar'
 
 const EmployeeView = () => {
   return (
-    <div>EmployeeView</div>
+    <div>
+        <Sidebar/>
+    </div>
   )
 }
 
