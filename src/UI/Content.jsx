@@ -3,10 +3,12 @@ import Searchbar from "../Pages/Searchbar/Searchbar";
 import styles from "./../UI/Content.module.css";
 import Employee from "./Employee.jsx";
 import EmployeeDetail from "../UI/Employee/EmployeeDetail.jsx"; 
+import AddEmployee from "../UI/Employee/AddEmployee.jsx";
 
 const Content = () => {
     const [details, setDetails] = useState([]);
     const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
+    const [addEmployee, setAddEmployee] = useState(false)
   
     useEffect(function () {
       async function getEmployyeDetails() {
@@ -35,13 +37,17 @@ const Content = () => {
         setSelectedEmployeeId(null);
       }
 
+      function handleAddEmployee() {
+        setAddEmployee(add => !add)
+      }
 
   return (
     <div>
          <div>
       <div className={styles["main-bar"]}>
         <Searchbar />
-        <button className={styles["btn"]}>Add a new Employee</button>
+        <button onClick={handleAddEmployee} className={styles["btn"]}>Add a new Employee</button>
+        {addEmployee && <AddEmployee onClick={handleAddEmployee}/>}
       </div>
 
       {selectedEmployeeId ? (
