@@ -2,9 +2,11 @@ import React, { use, useEffect, useState } from "react";
 import Searchbar from "../Pages/Searchbar/Searchbar";
 import styles from "./../UI/Content.module.css";
 import Employee from "./Employee.jsx";
+import EmployeeDetail from "../UI/Employee/EmployeeDetail.jsx"; 
 
 const Content = () => {
     const [details, setDetails] = useState([]);
+    const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
   
     useEffect(function () {
       async function getEmployyeDetails() {
@@ -25,6 +27,14 @@ const Content = () => {
       getEmployyeDetails();
     }, []);
 
+    function handleSeeMore(empNo) {
+        setSelectedEmployeeId(empNo);
+      }
+    
+      function handleBackToList() {
+        setSelectedEmployeeId(null);
+      }
+
 
   return (
     <div>
@@ -33,14 +43,21 @@ const Content = () => {
         <Searchbar />
         <button className={styles["btn"]}>Add a new Employee</button>
       </div>
+
+      {selectedEmployeeId ? (
+        <EmployeeDetail empId={selectedEmployeeId} onBack={handleBackToList} />
+      ) : (
+
       <div className={styles["main-container"]}>
         <div className={styles["main-content"]}>
           {details.map((detail) => (
-            <Employee key={detail.empNo} detail={detail} />
+            <Employee key={detail.empNo} 
+            detail={detail} 
+            onSeeMore={handleSeeMore}/>
           ))}
         </div>
       </div>
-    </div>
+      )}</div>
     </div>
   )
 }

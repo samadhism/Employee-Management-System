@@ -8,7 +8,7 @@ export default defineConfig({
       '/api': {
         target: 'https://examination.24x7retail.com',
         changeOrigin: true,
-        
+        // rewrite: path => path.replace(/^\/api/, '') 
         
       }
     }
