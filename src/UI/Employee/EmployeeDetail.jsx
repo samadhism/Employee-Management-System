@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import styles from "../../UI/Employee/EmployeeDetail.module.css"
+
 
 const EmployeeDetails = ({ empId, onBack }) => {
   const [employee, setEmployee] = useState(null);
@@ -26,8 +28,24 @@ const EmployeeDetails = ({ empId, onBack }) => {
   if (!employee) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h2>Employee Details</h2>
+    <div className={styles.container}>
+    <div className={styles.buttonGroup}>
+      <button className={styles.editButton}>Edit Employee</button>
+      <button className={styles.deleteButton}>Delete Employee</button>
+    </div>
+
+    
+    <div className={styles.header}>
+      <div className={styles.profileImage}></div>
+      <div className={styles.employeeName}>{employee.empName}</div>
+    </div>
+
+   
+    <div className={styles.sectionTitle}>
+      Personal Information <span role="img" aria-label="edit">✏️</span>
+    </div>
+
+    <div className={styles.detailsList}>
       <p><strong>Emp No:</strong> {employee.empNo}</p>
       <p><strong>Name:</strong> {employee.empName}</p>
       <p><strong>Department:</strong> {employee.departmentCode}</p>
@@ -35,8 +53,11 @@ const EmployeeDetails = ({ empId, onBack }) => {
       <p><strong>Date of Birth:</strong> {employee.dateOfBirth}</p>
       <p><strong>Basic Salary:</strong> {employee.basicSalary}</p>
       <p><strong>Activity:</strong> {employee.isActive}</p>
-      <button onClick={onBack} >
-        Back to list
+    </div>  
+
+     
+      <button className={styles.exitButton} onClick={onBack}>
+        Exit
       </button>
     </div>
   );
